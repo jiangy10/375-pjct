@@ -1,0 +1,305 @@
+@startuml
+package presentation{
+    class LinterMain{
+        - {static} classes: List<ClassData>
+        - {static} violations: List<Violation>
+        - {static} relations: List<Relation>
+        + {static} main(args: String[]): void
+        + {static} loadAllClasses(packagePath: String): void
+        + {static} checkAll(): void
+    }
+}
+
+
+
+
+package domain{
+    class Violation{
+       - description: String
+       - violationSourceClass: String
+       + Violation(description: String,violationSourceClass: String)
+       + toString(): String
+    }
+
+        class Relation {
+          - firstClass: String
+          - secondClass: String
+          - relationship: RelationshipTypes
+          + Relation(firstClass: String,secondClass: String, relationship: RelationshipTypes)
+          + getFirstClass(): String
+          + getSecondClass(): String
+          + getRelationship(): RelationshipTypes
+        }
+
+       enum RelationshipTypes {
+          IMPLEMENTS, EXTENDS, HAS, USES
+            
+       }
+    
+    class ClassData {
+       - name: String
+       - methods: List<MethodData>
+       - fields: List<VariableData>
+       - isInterface: boolean
+       - isAbstract: boolean
+       - isEnum: boolean
+       + ClassData(name: String,methods: List<MethodData>, fields: List<VariableData>,isInterface: boolean,isAbstract: boolean,isEnum: boolean)
+       + getName(): String
+       + getMethods(): List<MethodData>
+       + getFields(): List<VariableData>
+       + isInterface(): boolean
+       + isAbstract(): boolean
+       + isEnum(): boolean
+    }
+    
+    class MethodData {
+      - methodName: String
+      - isAbstract: boolean
+      - parameters: List<String>
+      - instructions: List<MethodInstructionData>
+      - accessModifier: AccessModifiers
+      - returnType: String
+      - insnSize: int
+      - isStatic: boolean
+      + MethodData(methodName: String,isAbstract: boolean,parameters: List<String>instructions: List<MethodInstructionData>,accessModifier: AccessModifiers,returnType: String,insnSize: int,isStatic: boolean)
+      + getMethodName(): String
+      + isAbstract(): boolean
+      + getParameters(): List<String>
+      + getInstructions(): List<MethodInstructionData>
+      + getAccessModifier(): AccessModifiers
+      + getInstructionSize(): int
+      + isStatic(): boolean
+      + getReturnType(): String
+    }
+    
+    class VariableData {
+       - name: String
+       - isAbstract: boolean
+       - accessModifier: AccessModifiers
+       - type: String
+       - isStatic: boolean
+       + VariableData(name: String,isAbstract: boolean,accessModifier: AccessModifiers,type: String,isStatic: boolean)
+       + getName(): String
+       + isAbstract(): boolean
+       + getAccessModifier(): AccessModifiers
+       + getType(): String
+       + isStatic(): boolean
+    }
+
+    class MethodInstructionData{
+        -name: String
+        -owner: String
+        +MethodInstructionData(methodCall: String,owner: String )
+        +getName(): String
+        +getOwner(): String
+    }
+    
+    enum AccessModifiers {
+      PUBLIC,
+      PRIVATE,
+      PACKAGE_PROTECTED,
+      DEFAULT
+    }
+    
+    
+    abstract class Check{
+       # {static} classes: List<ClassData>
+        # relations: List<Relations>
+       + Check(classes: List<ClassData>, relations: List<Relations>)
+       + {abstract} checker(): List<Violation>
+    }
+    
+    class NameCheck{
+       + NameCheck(classes: List<ClassData>, relations: List<Relation>)
+       + {static} isGoodClassName(className: String): boolean
+       + checker(): List<Violation>
+    }
+    
+    class MethodLengthCheck{
+        - {static} MAX_LEN: int
+       + MethodLengthCheck(classes: List<ClassData>, relations: List<Relation>)
+       + checker(): List<Violation>
+    }
+    
+    class HashEqualsCheck{
+       + HashEqualsCheck(classes: List<ClassData>, relations: List<Relation>)
+       + checker(): List<Violation>
+    }
+    
+    class StaticInstantiationCheck{
+        - {static} VIOLATION_DESCRIPTION: String
+        - {static} INIT_METHOD: String
+       + StaticInstantiationCheck(classes: List<ClassData>, relations: List<Relation>)
+       + checker(): List<Violation>
+       - processName(name: String): String
+       - checkIsInstantiated(staticClass: ClassData):List<Violation>
+       - checkStaticClass(classData: ClassData): boolean
+       - checkStaticFields(fields: List<VariableData>): boolean
+       - checkStaticMethods(methods: List<MethodData>)
+    }
+    
+    class InformationHiding{
+       + InformationHiding(classes: List<ClassData>, relations: List<Relation>)
+       + {static} getClassByClassName(className: String)
+       + checker(): List<Violation>
+       - isMethodListEmpty(methods:List<MethodData>): boolean
+    }
+    
+    class HollywoodPrinciple{
+       + HollywoodPrinciple(classes: List<ClassData>, relations: List<Relation>)
+       + {static} getClassByClassName(className: String): ClassData
+       + checker(): List<Violation>
+       - isCalledBySecondClass(firstClass: ClassData,secondClass: ClassData): boolean
+       - isMethodCalledBySecondClass(method: MethodData, secondClass: ClassData)
+       - isSameMethod(method1: MethodData, method2: MethodData )
+    }
+    
+    class MessageChainCheck{
+       + MessageChainCheck(classes: List<ClassData>, relations: List<Relation>)
+       + checker(): List<Violation>
+    }
+    
+    class CodeToInterfaceCheck{
+        - classNames: Set<String>
+        - classTable: Hashtable<String, ClassData>
+        - DESC: String
+       + CodeToInterfaceCheck(classes: List<ClassData>, relations: List<Relation>)
+       - setUpVariables: void
+       + checker(): List<Violation>
+    }
+
+    class GodClassCheck{
+        - {static} GOD_CLASS_LIMIT_FACTOR: double
+        + GodClassCheck(classes: List<ClassData>, relations: List<Relation>)
+        + checker(): List<Violation>
+
+    }
+
+    class FacadeCheck{
+        - {static} DEPENDENCY_THRESHOLD: int
+       + FacadeCheck(classes: List<ClassData>, relations: List<Relation>)
+       + checker(): List<Violation>
+    }
+    
+    class ObserverCheck{
+       + ObserverCheck(classes: List<ClassData>, relations: List<Relation>)
+       + checker(): List<Violation>
+    }
+    
+    class StrategyCheck{
+        - classNames: Set<String>
+        - classTable: Hashtable<String, ClassData>
+       + StrategyCheck(classes: List<ClassData>, relations: List<Relation>)
+       + checker(): List<Violation>
+       - checkForStrategySigns(callerClass:ClassData,interfaceClass: ClassData)
+
+    }
+    
+    interface ClassLoader{
+        + {abstract} getRelations(): List<Relation>
+       + {abstract} loadClasses(): List<ClassData>
+    }
+    
+    class ASMAdaptor{
+       - asmLoader: ASMLoader
+       - relations: List<Relation>
+       - relationString: List<String>
+       + ASMAdaptor(asmLoader: ASMLoader, relations: List<Relation>)
+       + loadClasses(): List<ClassData>
+       - processName(name: String): String
+       - loadMethods(methodNodes: List<MethodNode>, className: String): List<MethodData>
+       - loadVariables(fieldNodes: List<FieldNode>, className: String): List<VariableData>
+       - loadInstruction(insnNodes: List<MethodInsnNode>, className: String): List<MethodInstructionData>
+       + getRelations(): List<Relation>
+    }
+    
+    class ASMLoader{
+       - filepath: String
+       - isValid: boolean
+       + ASMLoader(fp: String)
+       + loadClassNodes(): List<ClassNode>
+       + isValid(): boolean
+    }
+
+    class FolderWrapper {
+    - javaFiles: File[]
+    - classNameStrings: List<String>
+    + FolderWrapper(directoryPath: String)
+    + getClassNames(): List<String>
+    }
+    
+
+    ASMLoader ..> FolderWrapper
+    ASMAdaptor ..|> ClassLoader
+    ASMAdaptor --> ASMLoader
+    ASMAdaptor --> "*" Relation
+    ASMAdaptor ..> ClassData
+    ASMAdaptor ..> MethodData
+    ASMAdaptor ..> VariableData
+
+
+    ClassLoader ..> "*" ClassData
+    ClassLoader ..> "*" Relation
+
+    GodClassCheck --|> Check
+    NameCheck --|> Check
+    MethodLengthCheck --|> Check
+    HashEqualsCheck --|> Check
+    StaticInstantiationCheck --|> Check
+    InformationHiding --|> Check
+    HollywoodPrinciple --|> Check
+    MessageChainCheck --|> Check
+    CodeToInterfaceCheck --|> Check
+
+    FacadeCheck --|> Check
+    ObserverCheck --|> Check
+    StrategyCheck --|> Check
+
+    MethodData -->"*" MethodInstructionData
+    MethodData --> AccessModifiers
+}
+
+package datasource{
+    interface Loader{
+       + loadClasses(): ByteCode
+    }
+    
+    interface Saver{
+       + saveViolations(violations: String): boolean
+    }
+    
+    class FileLoader{
+       - filepath: String
+       + FileLoader(fp: String)
+       + loadClasses(): ByteCode
+    }
+    
+    class FileSaver{
+       - filepath: String
+       + FileSaver(fp: String)
+       + saveViolations(violations: String): boolean
+    }
+    
+    FileLoader ..|> Loader
+    FileSaver ..|> Saver
+}
+
+LinterMain --> "*" ClassData
+LinterMain --> "*" Violation
+LinterMain --> "*" Relation
+LinterMain ..> ASMLoader
+LinterMain ..> ClassLoader
+LinterMain ..> Check
+
+Check --> "*" Relation
+
+VariableData --> AccessModifiers
+ClassData --> "*" MethodData
+ClassData --> "*" VariableData
+
+
+Relation --> RelationshipTypes 
+
+
+Check --> "*" ClassData
+@enduml
