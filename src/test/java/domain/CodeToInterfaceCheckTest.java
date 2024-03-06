@@ -1,7 +1,11 @@
 package domain;
 
 
-import domain.*;
+import domain.check.Check;
+import domain.check.CodeToInterfaceCheck;
+import domain.data.ClassData;
+import domain.data.MethodData;
+import domain.data.VariableData;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

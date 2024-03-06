@@ -2,6 +2,8 @@ package presentation;
 
 import domain.*;
 import domain.ClassLoader;
+import domain.check.*;
+import domain.data.ClassData;
 
 import java.io.IOException;
 import java.util.ArrayList;

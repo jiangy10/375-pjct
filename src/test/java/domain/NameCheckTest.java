@@ -1,6 +1,8 @@
 package domain;
 
-import domain.*;
+import domain.check.NameCheck;
+import domain.data.ClassData;
+import domain.data.VariableData;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

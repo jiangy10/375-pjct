@@ -1,7 +1,12 @@
 package domain;
 
+import domain.check.Check;
+import domain.check.FacadeCheck;
+import domain.check.GodClassCheck;
+import domain.check.MethodLengthCheck;
+import domain.data.ClassData;
+import domain.data.MethodData;
 import org.junit.jupiter.api.Test;
-import domain.*;
 
 import java.util.ArrayList;
 import java.util.List;

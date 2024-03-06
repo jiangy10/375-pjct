@@ -1,6 +1,9 @@
 package domain;
 
-import domain.*;
+import domain.data.ClassData;
+import domain.data.MethodData;
+import domain.data.MethodInstructionData;
+import domain.data.VariableData;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

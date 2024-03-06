@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import domain.data.ClassData;
+import domain.data.MethodData;
+import domain.data.MethodInstructionData;
+import domain.data.VariableData;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.*;

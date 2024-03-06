@@ -1,5 +1,11 @@
 package domain;
 
+import domain.check.Check;
+import domain.data.ClassData;
+import domain.data.MethodData;
+import domain.data.MethodInstructionData;
+import domain.data.VariableData;
+
 import java.util.ArrayList;
 import java.util.List;
 
