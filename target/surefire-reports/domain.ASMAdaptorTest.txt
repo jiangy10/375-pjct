@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: domain.ASMAdaptorTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.108 s <<< FAILURE! - in domain.ASMAdaptorTest
+domain.ASMAdaptorTest.whenOneClassNode_thenOneClassDataIsCreated  Time elapsed: 0.085 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at domain.ASMAdaptorTest.setUp(ASMAdaptorTest.java:24)
+Caused by: org.easymock.cglib.core.CodeGenerationException: java.lang.reflect.InaccessibleObjectException-->Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @67205a84
+	at domain.ASMAdaptorTest.setUp(ASMAdaptorTest.java:24)
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @67205a84
+	at domain.ASMAdaptorTest.setUp(ASMAdaptorTest.java:24)
+
+domain.ASMAdaptorTest.whenNoClassNodes_thenNoClassDatasAreCreated  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.easymock.internal.ClassProxyFactory$2
+	at domain.ASMAdaptorTest.setUp(ASMAdaptorTest.java:24)
+
