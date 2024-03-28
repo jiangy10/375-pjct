@@ -56,7 +56,7 @@ public class InformationHiding extends Check {
                     List<MethodInstructionData> methodInstructionData = methodData.getInstructions();
                     if (methodInstructionData != null) {
                         for (MethodInstructionData methodInstructionData1 : methodInstructionData) {
-                            if (methodInstructionData1.getName().equals(methodData.getMethodName())) {
+                            if (methodInstructionData1.getName().equals(methodData.getName())) {
                                 used = true;
                             }
                         }

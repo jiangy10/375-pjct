@@ -21,7 +21,7 @@ public class MethodLengthCheck extends Check{
         for(ClassData classData : classes){
             List<MethodData> methods = classData.getMethods();
             for (MethodData method : methods) {
-                String methodName = method.getMethodName();
+                String methodName = method.getName();
                 if (method.getInstructionSize() > MAX_LEN) {
                     Violation violation = new Violation(methodName + "(..) is " + (method.getInstructionSize() - MAX_LEN) + " instructions too long", classData.getName());
                     violations.add(violation);

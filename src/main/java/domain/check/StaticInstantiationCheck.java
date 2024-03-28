@@ -77,7 +77,7 @@ public class StaticInstantiationCheck extends Check {
             return false;
         }
         for (MethodData method: methods){
-            if((!method.isStatic())&&(!method.getMethodName().equals(INIT_METHOD))){
+            if((!method.isStatic())&&(!method.getName().equals(INIT_METHOD))){
                 isStatic = false;
             }
         }
