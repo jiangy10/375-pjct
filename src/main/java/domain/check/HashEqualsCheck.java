@@ -24,10 +24,10 @@ public class HashEqualsCheck extends Check{
         	hasEq = false;
             List<MethodData> methods = classData.getMethods();
             for (MethodData method : methods) {
-            	if(method.getMethodName().equals("hashCode")){ 
+            	if(method.getName().equals("hashCode")){
             		hasHash = true;
             	}
-            	else if(method.getMethodName().equals("equals")){
+            	else if(method.getName().equals("equals")){
             		hasEq = true;
             	}
             }

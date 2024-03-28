@@ -11,7 +11,7 @@ import java.util.List;
 
 public class NameCheck extends Check {
 
-    private List<Violation> violations;
+    private List<Violation> violations = new ArrayList<Violation>();
 
     public NameCheck(List<ClassData> classes, List<Relation> relations) {
         super(classes, relations);
@@ -58,9 +58,9 @@ public class NameCheck extends Check {
         List<MethodData> methods = classData.getMethods();
         if (methods != null) {
             for (MethodData methodData : methods) {
-                boolean hasBadName = !methodData.getMethodName().matches("^[a-zA-Z_][a-zA-Z0-9_]*$");
+                boolean hasBadName = !methodData.getName().matches("^[a-zA-Z_][a-zA-Z0-9_]*$");
                 if (hasBadName) {
-                    Violation violation = new Violation("Bad Method Name - " + methodData.getMethodName(), classData.getName());
+                    Violation violation = new Violation("Bad Method Name - " + methodData.getName(), classData.getName());
                     violations.add(violation);
                 }
             }

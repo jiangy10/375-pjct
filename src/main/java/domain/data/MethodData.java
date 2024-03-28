@@ -5,22 +5,18 @@ import domain.AccessModifiers;
 
 import java.util.List;
 
-public class MethodData {
-	private String methodName;
-	private boolean isAbstract;
+public class MethodData extends Data{
 	private List<String> parameters;
 	private List<MethodInstructionData> instructions;
 	private AccessModifiers accessModifier;
 
 	private String returnType;
-  private int insnSize;
+  	private int insnSize;
 	private boolean isStatic;
 
 	public MethodData(String methodName, boolean isAbstract, List<String> parameters, List<MethodInstructionData> instructions, 
 			AccessModifiers accessModifier,int insnSize, boolean isStatic, String returnType) {
-
-		this.methodName = methodName;
-		this.isAbstract = isAbstract;
+		super(methodName, isAbstract);
 		this.parameters = parameters;
 		this.instructions = instructions;
 		this.accessModifier = accessModifier;
@@ -29,13 +25,6 @@ public class MethodData {
 		this.insnSize = insnSize;
 	}
 
-	public String getMethodName() {
-		return methodName;
-	}
-
-	public boolean isAbstract() {
-		return isAbstract;
-	}
 
 	public List<String> getParameters() {
 		return parameters;

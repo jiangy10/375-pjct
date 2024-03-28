@@ -3,7 +3,6 @@ package domain.check;
 import domain.Relation;
 import domain.RelationshipTypes;
 import domain.Violation;
-import domain.check.Check;
 import domain.data.ClassData;
 import domain.data.MethodData;
 
@@ -61,7 +60,7 @@ public class HollywoodPrinciple extends Check {
 
     private boolean isMethodCalledBySecondClass(MethodData method, ClassData secondClass) {
         // Get the method name and parameter types
-        String methodName = method.getMethodName();
+        String methodName = method.getName();
         List<String> parameterTypes = method.getParameters();
 
         // Get the methods of the second class
@@ -78,7 +77,7 @@ public class HollywoodPrinciple extends Check {
 
     private boolean isSameMethod(MethodData method1, MethodData method2) {
         return method1.getParameters().equals(method2.getParameters())
-                && method1.getMethodName().equals(method2.getMethodName());
+                && method1.getName().equals(method2.getName());
     }
 
 

@@ -23,7 +23,7 @@ public class FacadeCheck extends Check{
             boolean isMain = false;
 
             for(MethodData methodData : methodDatas){ //Find which class is main, main cannot be a facade
-                if (methodData.getMethodName().contains("main") &&
+                if (methodData.getName().contains("main") &&
                         methodData.getAccessModifier() == AccessModifiers.PUBLIC &&
                         methodData.isStatic()){ //Check for public methods called main
                     isMain = true;

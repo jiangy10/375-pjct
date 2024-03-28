@@ -33,7 +33,7 @@ public class ObserverCheck extends Check{
         //try to find all possible abstract observers (classes with an update method)
         for(ClassData cls : absClasses) {
         	for(MethodData method : cls.getMethods()) {
-        		if(method.getMethodName().contains("update")) {
+        		if(method.getName().contains("update")) {
         			possibleObservers.add(cls);
         		}
         	}
@@ -53,10 +53,10 @@ public class ObserverCheck extends Check{
 	        	boolean hasNotify = false;
 	        	
 	        	for(MethodData method : cls.getMethods()) {
-	        		if(method.getMethodName().contains("notify")) {
+	        		if(method.getName().contains("notify")) {
 	        			hasNotify = true;
 	        		}
-	        		else if(method.getMethodName().contains("add") || method.getMethodName().contains("register")) {
+	        		else if(method.getName().contains("add") || method.getName().contains("register")) {
 	        			if(method.getParameters().size() == 1) {
 	        				reg = method.getParameters().get(0);
 	        			}
@@ -64,7 +64,7 @@ public class ObserverCheck extends Check{
 	        				continue;
 	        			}
 	        		}
-	        		else if(method.getMethodName().contains("delete") || method.getMethodName().contains("remove")) {
+	        		else if(method.getName().contains("delete") || method.getName().contains("remove")) {
 	        			if(method.getParameters().size() == 1) {
 	        				rem = method.getParameters().get(0);
 	        			}
