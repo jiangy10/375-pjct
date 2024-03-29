@@ -17,7 +17,6 @@ public class ObserverCheck extends Check{
 
     @Override
     public List<Violation> checker() {
-    	List<Violation> violations = new ArrayList<Violation>();
         List<ClassData> absClasses = new ArrayList<ClassData>();
         List<ClassData> possibleObservers = new ArrayList<ClassData>();
         for(ClassData cls : classes) {

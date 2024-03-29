@@ -20,7 +20,6 @@ public class StaticInstantiationCheck extends Check {
 
     @Override
     public List<Violation> checker() {
-        List<Violation> violations = new ArrayList<Violation>();
         for (ClassData classData: classes){
             if(checkStaticClass(classData)){
                 violations.addAll(checkIsInstantiated(classData));

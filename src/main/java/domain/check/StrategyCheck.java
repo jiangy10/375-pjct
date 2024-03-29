@@ -29,7 +29,6 @@ public class StrategyCheck extends Check{
     }
     @Override
     public List<Violation> checker() {
-        List<Violation> violations = new ArrayList<Violation>();
         for(Relation relation: relations){
             String firstClassName = relation.getFirstClass();
             String secondClassName = relation.getSecondClass();

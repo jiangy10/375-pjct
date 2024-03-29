@@ -17,7 +17,6 @@ public class FacadeCheck extends Check{
 
     @Override
     public List<Violation> checker() {
-        List<Violation> violations = new ArrayList<>();
         for(ClassData classData : classes){
             List<MethodData> methodDatas = classData.getMethods();
             boolean isMain = false;

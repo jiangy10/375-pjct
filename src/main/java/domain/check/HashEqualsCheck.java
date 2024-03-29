@@ -16,7 +16,6 @@ public class HashEqualsCheck extends Check{
 
 	@Override
 	public List<Violation> checker() {
-		List<Violation> violations = new ArrayList<Violation>();
 		boolean hasHash;
         boolean hasEq;
         for(ClassData classData: classes) {
