@@ -11,8 +11,6 @@ import java.util.List;
 
 public class NameCheck extends Check {
 
-    private List<Violation> violations = new ArrayList<Violation>();
-
     public NameCheck(List<ClassData> classes, List<Relation> relations) {
         super(classes, relations);
     }

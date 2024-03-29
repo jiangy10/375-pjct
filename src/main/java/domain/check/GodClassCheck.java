@@ -15,7 +15,6 @@ public class GodClassCheck extends Check{
 
     @Override
     public List<Violation> checker() {
-        List<Violation> violations = new ArrayList<>();
         for(ClassData classData : classes){
             int assocNum = 0;
             int depNum = 0;

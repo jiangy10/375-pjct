@@ -17,7 +17,6 @@ public class MethodLengthCheck extends Check{
 
     @Override
     public List<Violation> checker() {
-        List<Violation> violations = new ArrayList<>();
         for(ClassData classData : classes){
             List<MethodData> methods = classData.getMethods();
             for (MethodData method : methods) {
