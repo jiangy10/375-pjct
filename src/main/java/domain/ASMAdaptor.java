@@ -62,6 +62,9 @@ public class ASMAdaptor implements ClassLoader{
 	}
 
 	private String processName(String name) {
+		if (name == null) {
+			return ""; // Or some other appropriate default value or handling
+		}
 		int lastIndex = name.lastIndexOf('/');
 		if (lastIndex != -1) {
 			return name.substring(lastIndex + 1);

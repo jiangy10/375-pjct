@@ -272,7 +272,7 @@ public class ASMAdaptorTest {
 //        assertEquals(1, classDatas.get(0).getMethods().get(0).getInstructions().size(), "Expected one instruction in the method");
 //        verify(mockLoader);
 //    }
-//
+
 //    @Test
 //    public void testLoadClassesWithMethodManyInstructions() throws IOException {
 //        final int instructionCount = 100; // Define "many" as 100 for this test
