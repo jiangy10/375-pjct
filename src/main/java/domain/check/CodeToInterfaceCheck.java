@@ -27,7 +27,6 @@ public class CodeToInterfaceCheck extends Check {
 
     @Override
     public List<Violation> checker() {
-        List<Violation> violations = new ArrayList<Violation>();
         for(Relation relation: relations){
             String secondClassName = relation.getSecondClass();
             if(classNames.contains(secondClassName)){

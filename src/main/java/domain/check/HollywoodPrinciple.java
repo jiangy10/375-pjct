@@ -24,8 +24,6 @@ public class HollywoodPrinciple extends Check {
     }
     @Override
     public List<Violation> checker() {
-        List<Violation> violations = new ArrayList<>();
-
         // Check for violations of the Hollywood Principle
         for (Relation relation : relations) {
             ClassData firstClass = getClassByClassName(relation.getFirstClass());
