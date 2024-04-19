@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import java.util.List;
 
-import domain.check.HashEqualsCheck;
+import domain.check.styleChecks.HashEqualsCheck;
 import domain.data.ClassData;
 import domain.data.MethodData;
 import domain.data.MethodInstructionData;

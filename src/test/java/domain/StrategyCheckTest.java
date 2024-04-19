@@ -1,7 +1,7 @@
 package domain;
 
 import domain.check.Check;
-import domain.check.StrategyCheck;
+import domain.check.patternChecks.StrategyCheck;
 import domain.data.ClassData;
 import domain.data.MethodData;
 import domain.data.MethodInstructionData;

@@ -1,9 +1,9 @@
 package domain;
 
 import domain.check.Check;
-import domain.check.FacadeCheck;
-import domain.check.GodClassCheck;
-import domain.check.MethodLengthCheck;
+import domain.check.patternChecks.FacadeCheck;
+import domain.check.principleChecks.GodClassCheck;
+import domain.check.styleChecks.MethodLengthCheck;
 import domain.data.ClassData;
 import domain.data.MethodData;
 import org.junit.jupiter.api.Test;

@@ -1,14 +1,15 @@
-package domain.check;
+package domain.check.styleChecks;
 
 import domain.Relation;
 import domain.Violation;
+import domain.check.*;
 import domain.data.ClassData;
 import domain.data.MethodData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MethodLengthCheck extends Check{
+public class MethodLengthCheck extends Check {
 
     private static final int MAX_LEN = 250;
     public MethodLengthCheck(List<ClassData> classes, List<Relation> relations) {

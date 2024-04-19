@@ -2,11 +2,10 @@ package domain;
 
 
 import domain.check.Check;
-import domain.check.CodeToInterfaceCheck;
+import domain.check.principleChecks.CodeToInterfaceCheck;
 import domain.data.ClassData;
 import domain.data.MethodData;
 import domain.data.VariableData;
-import org.easymock.*;
 import org.junit.jupiter.api.*;
 
 import java.util.List;

@@ -1,5 +1,6 @@
-package domain.check;
+package domain.check.styleChecks;
 
+import domain.check.*;
 import domain.data.MethodInstructionData;
 import domain.Relation;
 import domain.Violation;

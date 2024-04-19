@@ -1,5 +1,6 @@
-package domain.check;
+package domain.check.patternChecks;
 
+import domain.check.*;
 import domain.data.MethodInstructionData;
 import domain.Relation;
 import domain.RelationshipTypes;
@@ -9,7 +10,7 @@ import domain.data.MethodData;
 
 import java.util.*;
 
-public class StrategyCheck extends Check{
+public class StrategyCheck extends Check {
     private Set<String> classNames;
     private Hashtable<String, ClassData> classTable;
 

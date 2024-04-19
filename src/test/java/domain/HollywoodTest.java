@@ -1,6 +1,6 @@
 package domain;
 
-import domain.check.HollywoodPrinciple;
+import domain.check.principleChecks.HollywoodPrinciple;
 import domain.data.ClassData;
 import domain.data.MethodData;
 import domain.data.MethodInstructionData;

@@ -1,15 +1,16 @@
-package domain.check;
+package domain.check.patternChecks;
 
 import domain.Relation;
 import domain.RelationshipTypes;
 import domain.Violation;
+import domain.check.*;
 import domain.data.ClassData;
 import domain.data.MethodData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObserverCheck extends Check{
+public class ObserverCheck extends Check {
 
     public ObserverCheck(List<ClassData> classes, List<Relation> relations) {
         super(classes, relations);

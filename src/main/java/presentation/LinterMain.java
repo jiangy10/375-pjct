@@ -3,6 +3,9 @@ package presentation;
 import domain.*;
 import domain.ClassLoader;
 import domain.check.*;
+import domain.check.patternChecks.*;
+import domain.check.principleChecks.*;
+import domain.check.styleChecks.*;
 import domain.data.ClassData;
 
 import java.io.IOException;

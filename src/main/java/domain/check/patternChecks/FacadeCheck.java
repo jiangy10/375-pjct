@@ -1,16 +1,17 @@
-package domain.check;
+package domain.check.patternChecks;
 
 import domain.AccessModifiers;
 import domain.Relation;
 import domain.RelationshipTypes;
 import domain.Violation;
+import domain.check.*;
 import domain.data.ClassData;
 import domain.data.MethodData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FacadeCheck extends Check{
+public class FacadeCheck extends Check {
     private static final int DEPENDENCY_THRESHOLD = 5;
     private List<Violation> violations = new ArrayList<Violation>();
 
@@ -18,9 +19,12 @@ public class FacadeCheck extends Check{
 
     @Override
     public List<Violation> checker() {
-        for(ClassData classData : classes){
+        for (ClassData classData : classes) {
             List<MethodData> methodDatas = classData.getMethods();
             boolean isMain = false;
+        }
+        return violations;
+    }
 
     private boolean isMainClass(ClassData classData) {
         for(MethodData methodData : classData.getMethods()) {
