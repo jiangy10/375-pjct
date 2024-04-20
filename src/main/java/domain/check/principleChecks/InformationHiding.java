@@ -1,5 +1,6 @@
-package domain;
+package domain.check.principleChecks;
 
+import domain.*;
 import domain.check.Check;
 import domain.data.ClassData;
 import domain.data.MethodData;

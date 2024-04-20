@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: domain.InformationHidingTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in domain.InformationHidingTest
-domain.InformationHidingTest.testInformationHidingPrivateGetterNotCalled  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
-	at domain.InformationHidingTest.testInformationHidingPrivateGetterNotCalled(InformationHidingTest.java:55)
-
